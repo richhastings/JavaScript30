@@ -19,7 +19,6 @@
       font-size: 100px;
     }
     body {
-      margin: 0;
       font-family: sans-serif;
       min-height:100vh;
       display:flex;
@@ -33,7 +32,7 @@
         radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
       background-color:#282828;
       background-size:16px 16px;
-      background-attachment: fixed;
+      background-position: fixed;
     }
 
     .arrow {
@@ -58,6 +57,17 @@
     /*Compass: https://thenounproject.com/search/?q=compass&i=592352*/
   </style>
   <script>
+    const arrow = document.querySelector('.arrow')
+    const speed = document.querySelector('.speed-value')
+
+    navigator.geolocation.watchPosition(data => {
+      speed.textContent = data.coords.speed
+      arrow.style.transform = `rotate(${data.coords.heading}deg)`
+    }, (err) => {
+      console.log(err)
+      alert('HEY!')
+    })
+
   </script>
 </body>
 </html>

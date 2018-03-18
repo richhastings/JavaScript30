@@ -62,10 +62,17 @@
 
     function checkSlide(e) {
       sliderImages.forEach(sliderImage => {
-        const slideInAt =
+        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height/2
+        const imageBottom = sliderImage.offsetTop + sliderImage.height
+        const isHalfShown = slideInAt > sliderImage.offsetTop
+        const isNotScrolledPast = window.scrollY < imageBottom
 
-        if(sliderImage.offsetY > (window.scrollY + window.clientHeight) - sliderImage.height/2) {
+        console.log(isHalfShown)
+
+        if(isHalfShown && isNotScrolledPast) {
           sliderImage.classList.add('active')
+        } else {
+          sliderImage.classList.remove('active')
         }
       })
     }

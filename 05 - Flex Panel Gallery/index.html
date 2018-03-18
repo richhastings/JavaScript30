@@ -24,8 +24,6 @@
     .panels {
       min-height:100vh;
       overflow: hidden;
-      display: -webkit-flex;
-      display: -ms-flex;
       display: flex;
     }
 
@@ -35,6 +33,8 @@
       color:white;
       text-align: center;
       align-items:center;
+      justify-content: center;
+      display: flex;
       /* Safari transitionend event.propertyName === flex */
       /* Chrome + FF transitionend event.propertyName === flex-grow */
       transition:
@@ -45,6 +45,7 @@
       background-size:cover;
       background-position:center;
       flex: 1;
+      flex-direction: column;
     }
 
 
@@ -58,6 +59,23 @@
       margin:0;
       width: 100%;
       transition:transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .panel > *:first-child {
+      transform: translateY(-100%)
+    }
+
+    .panel > *:last-child {
+      transform: translateY(100%)
+    }
+
+    .panel.open-active > *:first-child,
+    .panel.open-active > *:last-child {
+      transform: translateY(0);
     }
 
     .panel p {
@@ -72,6 +90,7 @@
 
     .panel.open {
       font-size:40px;
+      flex: 5;
     }
 
     .cta {
@@ -111,7 +130,20 @@
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panel')
 
+    function toggle() {
+      this.classList.toggle('open')
+    }
+
+    function makeActive(e) {
+      e.propertyName.includes('flex') && this.classList.toggle('open-active')
+    }
+
+    panels.forEach(panel => {
+      panel.addEventListener('click', toggle)
+      panel.addEventListener('transitionend', makeActive)
+    })
   </script>
 
 

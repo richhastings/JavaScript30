@@ -1,0 +1,13 @@
+{
+  "extends": "clock",
+
+  "env": {
+    "es6": false
+  },
+
+  "globals": {
+    "$": true,
+    "jQuery": true
+  }
+
+}
