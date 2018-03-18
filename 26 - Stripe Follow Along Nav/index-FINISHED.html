@@ -33,12 +33,20 @@
             <a href="https://ES6.io">ES6 For Everyone</a>
           </li>
           <li>
+            <span class="code">NODE</span>
+            <a href="https://LearnNode.com">Learn Node</a>
+          </li>
+          <li>
             <span class="code">STPU</span>
             <a href="https://SublimeTextBook.com">Sublime Text Power User</a>
           </li>
           <li>
             <span class="code">WTF</span>
-            <a href="http://flexbox.io">What The Flexbox?!</a>
+            <a href="http://Flexbox.io">What The Flexbox?!</a>
+          </li>
+          <li>
+            <span class="code">GRID</span>
+            <a href="https://CSSGrid.io">CSS Grid</a>
           </li>
           <li>
             <span class="code">LRX</span>
@@ -57,7 +65,7 @@
       <li>
         <a href="#">Other Links</a>
         <ul class="dropdown dropdown3">
-          <li><a class="button" href="http://twitter.com/wesbos">Twiter</a></li>
+          <li><a class="button" href="http://twitter.com/wesbos">Twitter</a></li>
           <li><a class="button" href="http://facebook.com/wesbos.developer">Facebook</a></li>
           <li><a class="button" href="http://wesbos.com">Blog</a></li>
           <li><a class="button" href="http://wesbos.com/courses">Course Catalog</a></li>
@@ -75,12 +83,18 @@
     box-sizing: inherit;
   }
   body {
+    margin: 0;
     min-height: 100vh;
     background:
       linear-gradient(45deg, hsla(340, 100%, 55%, 1) 0%, hsla(340, 100%, 55%, 0) 70%),
       linear-gradient(135deg, hsla(225, 95%, 50%, 1) 10%, hsla(225, 95%, 50%, 0) 80%),
       linear-gradient(225deg, hsla(140, 90%, 50%, 1) 10%, hsla(140, 90%, 50%, 0) 80%),
       linear-gradient(315deg, hsla(35, 95%, 55%, 1) 100%, hsla(35, 95%, 55%, 0) 70%);
+  }
+
+  h2 {
+    margin-top: 0;
+    padding-top: .8em;
   }
 
   nav {
@@ -122,7 +136,7 @@
     border-radius:2px;
     transition: all 0.5s;
     transform: translateY(100px);
-    will-change: transform;
+    will-change: opacity;
     display: none;
   }
 
@@ -143,8 +157,8 @@
     background: #fff;
     border-radius: 4px;
     box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
-    transition:all 0.3s, opacity 0.1s, translate 0.2s;
-    transform-origin: 50% 0%;
+    transition:all 0.3s, opacity 0.1s, transform 0.2s;
+    transform-origin: 50% 0;
     display: flex;
     justify-content: center;
     opacity:0;
@@ -204,7 +218,6 @@
   .button[href*=twitter] { background: #019FE9; }
   .button[href*=facebook] { background: #3B5998; }
   .button[href*=courses] { background: #ffc600; }
-
 </style>
 
 <script>
